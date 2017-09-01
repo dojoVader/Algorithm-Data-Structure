@@ -1,3 +1,0 @@
-/home/x64/Desktop/AlgorithmCLRS/AlgorithmDS-CLRS/CMakeFiles/edit_cache.dir
-/home/x64/Desktop/AlgorithmCLRS/AlgorithmDS-CLRS/CMakeFiles/rebuild_cache.dir
-/home/x64/Desktop/AlgorithmCLRS/AlgorithmDS-CLRS/CMakeFiles/clrs.dir
