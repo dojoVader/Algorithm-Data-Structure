@@ -1,3 +1,5 @@
+
+// Best and Worse Case O(n)
 class ArrayRotation{
 
 	static int[] rotateArray(int[] arrayList, int rotation){

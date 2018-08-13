@@ -1,6 +1,9 @@
 // Java program to implement linear 
 // search in unsorted arrays
  
+
+// Complexity Worst Case O(n) - Searches all the Array
+// Complexity Best case O(1) - First Key found in the Array
 class SearchArray
 {
     //Write the function to search for a key in the array
