@@ -40,7 +40,7 @@ class SumOfPairsWithMap {
             hashMap.put(a, a);
         }
 
-        // O(n2)
+   
         try{
             findSumofPairsWithMap(arrayOfpairs, sumValue);
         }
