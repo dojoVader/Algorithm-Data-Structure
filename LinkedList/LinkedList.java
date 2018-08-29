@@ -2,27 +2,30 @@
 public class LinkedList<T> {
 
     // Create the Node head
-    public Node head;
+    public Node<T> head;
 
     public void printNodes() {
         // We want to print all the nodes
-        Node tempNode = head;
-        while (tempNode.next != null) {
+        Node<T> tempNode = head;
+        while (tempNode != null) {
             System.out.format("Node Content is %s \n", tempNode.data);
             tempNode = tempNode.next;
         }
     }
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
-        Node nodeOne = new Node("Okeowo");
-        Node nodetwo = new Node("Adetayo");
-        Node nodeThree = new Node("Adeniyi");
+        LinkedList<String> list = new LinkedList<String>();
+        Node<String> nodeOne = new Node<String>("Okeowo");
+        Node<String> nodetwo = new Node<String>("Adetayo");
+        Node<String> nodeThree = new Node<String>("Adeniyi");
+
+        //Head
+        Node<String> main = new Node<String>("Seyi Izzi");
 
         // assign the nodes all
         nodetwo.next = nodeThree;
         nodeOne.next = nodetwo;
-        list.head = new Node("Seyi Izzi");
+        list.head = main;
         list.head.next = nodeOne;
 
         // Print the nodes
