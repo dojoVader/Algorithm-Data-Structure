@@ -58,15 +58,20 @@ public class LinkedList<T> {
         if (head == null) {
             return false;
         }
-        // Assign to the item, we need a reference to the previous linkedList to to point to a new Address, hopefully GC should reclaim the unassigned Object
+        // Assign to the item, we need a reference to the previous linkedList to to
+        // point to a new Address, hopefully GC should reclaim the unassigned Object
         Node<T> itemNode = head, prev = null;
-        if(head.data == d){
+        if (head.data == d) {
             head = head.next;
+            if (head.next == null) {
+                tail = head;
+            }
+            --countElement;
             return true;
         }
         while (itemNode != null) {
             if (itemNode.data == d) {
-                
+
                 if (itemNode.next != null) {
                     // Re-assign the previous
                     prev.next = itemNode.next;
@@ -74,6 +79,7 @@ public class LinkedList<T> {
                     return true;
                 } else {
                     prev.next = null;
+                    tail = prev;
                     --countElement;
                     return true;
                 }
@@ -93,7 +99,24 @@ public class LinkedList<T> {
             System.out.format("Node Content is %s \n", tempNode.data);
             tempNode = tempNode.next;
         }
+        System.out.format("Head is now %s \n \n", head.data);
+        System.out.format("Tail is now %s \n \n", tail.data);
         tempNode = null;
+    }
+
+    public void reverseOrder() {
+        Node<T> currentNode, nextNode, prevNode = null;
+        // Set the Current as the taail
+        currentNode = head;
+        tail = currentNode;
+        while (currentNode != null) {
+            // Let's deal with the swapping
+            nextNode = currentNode.next;
+            currentNode.next = prevNode;
+            prevNode = currentNode;
+            currentNode = nextNode;
+        }
+        head = prevNode;
     }
 
     public static void main(String[] args) {
@@ -104,12 +127,14 @@ public class LinkedList<T> {
         list.insert("Okeowo Adeniyi");
         list.insert("Geostigma Sephiroth");
         list.printNodes();
-        if (list.contains("Okeowo Aderemix")) {
+        if (list.contains("Geostigma Sephiroth")) {
             System.out.println("Element was found in the List");
         } else {
             System.out.println("Element was not found in the List");
         }
-        list.delete("Okeowo Adetayo");
+ 
+        list.printNodes();
+        list.reverseOrder();
         list.printNodes();
     }
 
