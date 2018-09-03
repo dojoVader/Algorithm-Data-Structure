@@ -22,6 +22,22 @@ public class LinkedList<T> {
             temp.next = item;
         }
     }
+    
+    // Time Complexity O(n) as it needs to search the whole list at worse case scenario
+    public boolean contains(T value){
+        // Only return this when the head is null
+        if( head == null){
+            return false;
+        }
+        Node<T> temp = head;
+        while(temp != null){
+            if(temp.data == value){
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
 
     public int getSize(){
         return countElement;
@@ -45,6 +61,11 @@ public class LinkedList<T> {
         list.insert(new Node<String>("Okeowo Adeniyi"));
         list.insert(new Node<String>("Geostigma Sephiroth"));
         list.printNodes();
+        if(list.contains("Okeowo Aderemix")){
+            System.out.println("Element was found in the List");
+        }else{
+            System.out.println("Element was not found in the List");
+        }
     }
 
 }
