@@ -3,6 +3,29 @@ public class LinkedList<T> {
 
     // Create the Node head
     public Node<T> head;
+    private int countElement = 0;
+    
+
+    public void insert(Node<T> item){
+        //Check if the head is empty 
+        if(head == null){
+            // Head is Empty so we assign to it
+            head = item;
+            countElement++;
+        } 
+        else{
+            // At this junction it means head is not empty we need to traverse to the end of the list to append
+            Node<T> temp = head;
+            while(temp.next != null){
+                 temp = temp.next;
+            }
+            temp.next = item;
+        }
+    }
+
+    public int getSize(){
+        return countElement;
+    }
 
     public void printNodes() {
         // We want to print all the nodes
@@ -11,24 +34,16 @@ public class LinkedList<T> {
             System.out.format("Node Content is %s \n", tempNode.data);
             tempNode = tempNode.next;
         }
+        tempNode = null;
     }
 
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<String>();
-        Node<String> nodeOne = new Node<String>("Okeowo");
-        Node<String> nodetwo = new Node<String>("Adetayo");
-        Node<String> nodeThree = new Node<String>("Adeniyi");
-
-        //Head
-        Node<String> main = new Node<String>("Seyi Izzi");
-
-        // assign the nodes all
-        nodetwo.next = nodeThree;
-        nodeOne.next = nodetwo;
-        list.head = main;
-        list.head.next = nodeOne;
-
-        // Print the nodes
+        list.insert(new Node<String>("Oluseyi Izzi"));
+        list.insert(new Node<String>("Okeowo Aderemi"));
+        list.insert(new Node<String>("Okeowo Adetayo"));
+        list.insert(new Node<String>("Okeowo Adeniyi"));
+        list.insert(new Node<String>("Geostigma Sephiroth"));
         list.printNodes();
     }
 
