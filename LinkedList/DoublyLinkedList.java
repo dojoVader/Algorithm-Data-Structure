@@ -104,6 +104,7 @@ public class DoublyLinkedList<T> {
                 if (itemNode.next != null) {
                     // Re-assign the previous
                     prev.next = itemNode.next;
+                    itemNode.next.prev = prev;
                     --countElement;
                     return true;
                 } else {
@@ -156,6 +157,7 @@ public class DoublyLinkedList<T> {
         list.insert("Okeowo Adeniyi");
         list.insert("Geostigma Sephiroth");
         list.insert("Exodus");
+        list.delete("Okeowo Aderemi");
         list.printNodes();
    
       
