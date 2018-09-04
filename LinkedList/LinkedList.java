@@ -52,6 +52,16 @@ public class LinkedList<T> {
         return countElement;
     }
 
+    public void push(T d){
+        if(tail == null){
+            insert(d);
+        }else{
+            Node<T> item = new Node<T>(d);
+            tail.next = item;
+            countElement++;
+        }
+    }
+
     // Delete the item from the node from the linkedlist
     public boolean delete(T d) {
         // Case 1 when the array is empty
@@ -132,8 +142,11 @@ public class LinkedList<T> {
         } else {
             System.out.println("Element was not found in the List");
         }
- 
+
         list.printNodes();
+        list.reverseOrder();
+        list.printNodes();
+        list.push("dojoVader");
         list.reverseOrder();
         list.printNodes();
     }
