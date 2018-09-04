@@ -91,6 +91,7 @@ public class DoublyLinkedList<T> {
         // point to a new Address, hopefully GC should reclaim the unassigned Object
         Node<T> itemNode = head, prev = null;
         if (head.data == d) {
+            head.next.prev = head.prev;
             head = head.next;
             if (head.next == null) {
                 tail = head;
@@ -157,7 +158,7 @@ public class DoublyLinkedList<T> {
         list.insert("Okeowo Adeniyi");
         list.insert("Geostigma Sephiroth");
         list.insert("Exodus");
-        list.delete("Okeowo Aderemi");
+        list.delete("Oluseyi Izzi");
         list.printNodes();
    
       
