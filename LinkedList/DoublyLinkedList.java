@@ -36,8 +36,8 @@ public class DoublyLinkedList<T> {
         } else {
             // At this junction it means head is not empty we need to traverse to the end of
             // the list to append
-            // Get the last Element here and attach as the previous element 
-        
+            // Get the last Element here and attach as the previous element
+
             Node<T> temp = head;
             while (temp.next != null) {
                 temp = temp.next;
@@ -127,7 +127,9 @@ public class DoublyLinkedList<T> {
         // We want to print all the nodes
         Node<T> tempNode = head;
         while (tempNode != null) {
-            System.out.format("Node Content is %s , Previous Node {%s}, Next Node {%s} \n", tempNode.data, (tempNode.prev != null) ? tempNode.prev.data : "Empty", (tempNode.next != null) ? tempNode.next.data : "Empty");
+            System.out.format("Node Content is %s , Previous Node {%s}, Next Node {%s} \n", tempNode.data,
+                    (tempNode.prev != null) ? tempNode.prev.data : "Empty",
+                    (tempNode.next != null) ? tempNode.next.data : "Empty");
             tempNode = tempNode.next;
         }
         System.out.format("Head is now %s \n \n", head.data);
@@ -150,6 +152,17 @@ public class DoublyLinkedList<T> {
         head = prevNode;
     }
 
+    public void reverseTrasverseTail(){
+        Node<T> temp = tail;
+        System.out.format("Node Content is %s , Previous Node {%s} \n", temp.data,
+        (temp.prev != null) ? temp.prev.data : "Empty");
+        while(temp.prev != null){
+            temp = temp.prev;
+            System.out.format("Node Content is %s , Previous Node {%s} \n", temp.data,
+            (temp.prev != null) ? temp.prev.data : "Empty");
+        }
+    }
+
     public static void main(String[] args) {
         DoublyLinkedList<String> list = new DoublyLinkedList<String>();
         list.insert("Oluseyi Izzi");
@@ -158,10 +171,10 @@ public class DoublyLinkedList<T> {
         list.insert("Okeowo Adeniyi");
         list.insert("Geostigma Sephiroth");
         list.insert("Exodus");
-        list.delete("Oluseyi Izzi");
-        list.printNodes();
-   
       
+        list.printNodes();
+        list.reverseTrasverseTail();
+
     }
 
 }
