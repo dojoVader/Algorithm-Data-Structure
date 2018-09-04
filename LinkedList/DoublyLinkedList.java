@@ -1,6 +1,5 @@
 
-public class LinkedList<T> {
-
+public class DoublyLinkedList<T> {
     /**
      * This Represents the Node that will be a Reference to the Data it holds and
      * the next item if no item is added it is set to null to state there's no next
@@ -145,7 +144,7 @@ public class LinkedList<T> {
     }
 
     public static void main(String[] args) {
-        LinkedList<String> list = new LinkedList<String>();
+        DoublyLinkedList<String> list = new DoublyLinkedList<String>();
         list.insert("Oluseyi Izzi");
         list.insert("Okeowo Aderemi");
         list.insert("Okeowo Adetayo");
