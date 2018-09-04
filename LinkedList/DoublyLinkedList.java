@@ -7,11 +7,13 @@ public class DoublyLinkedList<T> {
      */
     class Node<T> {
         Node<T> next;
+        Node<T> prev;
         T data;
 
         Node(T d) {
             data = d;
             next = null;
+            prev = null;
         }
     }
 
@@ -34,12 +36,15 @@ public class DoublyLinkedList<T> {
         } else {
             // At this junction it means head is not empty we need to traverse to the end of
             // the list to append
+            // Get the last Element here and attach as the previous element 
+        
             Node<T> temp = head;
             while (temp.next != null) {
                 temp = temp.next;
             }
             Node<T> itemNode = new Node<T>(item);
             temp.next = itemNode;
+            itemNode.prev = temp;
             tail = itemNode;
             countElement++;
         }
@@ -120,7 +125,7 @@ public class DoublyLinkedList<T> {
         // We want to print all the nodes
         Node<T> tempNode = head;
         while (tempNode != null) {
-            System.out.format("Node Content is %s \n", tempNode.data);
+            System.out.format("Node Content is %s , Previous Node {%s}, Next Node {%s} \n", tempNode.data, (tempNode.prev != null) ? tempNode.prev.data : "Empty", (tempNode.next != null) ? tempNode.next.data : "Empty");
             tempNode = tempNode.next;
         }
         System.out.format("Head is now %s \n \n", head.data);
@@ -150,19 +155,10 @@ public class DoublyLinkedList<T> {
         list.insert("Okeowo Adetayo");
         list.insert("Okeowo Adeniyi");
         list.insert("Geostigma Sephiroth");
+        list.insert("Exodus");
         list.printNodes();
-        if (list.contains("Geostigma Sephiroth")) {
-            System.out.println("Element was found in the List");
-        } else {
-            System.out.println("Element was not found in the List");
-        }
-
-        list.printNodes();
-        list.reverseOrder();
-        list.printNodes();
-        list.push("dojoVader");
-        list.reverseOrder();
-        list.printNodes();
+   
+      
     }
 
 }
