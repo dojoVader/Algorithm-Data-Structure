@@ -38,6 +38,12 @@ public class DoublyLinkedList<T> {
             // the list to append
             // Get the last Element here and attach as the previous element
 
+            /**
+             * @todo
+             * Add an item to a specific node and adjusting the previous and the next
+             * 
+             */
+
             Node<T> temp = head;
             while (temp.next != null) {
                 temp = temp.next;
