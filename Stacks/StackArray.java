@@ -12,6 +12,10 @@ public class StackArray{
         top = -1;
     }
 
+    boolean isEmpty(){
+        return top < 0;
+    }
+
     public int getSize(){
         return MAX;
     }
