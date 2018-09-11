@@ -15,7 +15,7 @@ public class StackArray{
     public int getSize(){
         return MAX;
     }
-
+    // O(n)
     void print() {
         System.out.print("Stack MAX Element Size: " + getSize() + "\n");
         System.out.println("Top is "+ top);
@@ -24,6 +24,7 @@ public class StackArray{
         }
     }
 
+    //O(1)
     boolean push(int data){
         // Check that we are not top already, meaning no more space
         if(top == (MAX - 1)){
@@ -35,6 +36,23 @@ public class StackArray{
         }
         return true;
  
+    }
+
+    // O(1)
+    int pop (){
+        // We need to check that there are items to be popped
+        if(top >= 0){
+            // We need to remove the item at the top first
+            int value = stack[top];
+            stack[top] = 0;
+            --top;
+            System.out.format("item popped: %d \n", value);
+            return value;
+            
+        }else{
+            System.out.println("Nothing to Pop off anymore \n");
+            return 0;
+        }
     }
 
 
@@ -49,10 +67,15 @@ public class StackArray{
             stackArray.push(30);
             stackArray.push(40);
             stackArray.push(50);
+         
+            stackArray.pop();
+            stackArray.pop();
+            stackArray.pop();
+            stackArray.pop();
+            stackArray.pop();
             stackArray.print();
-            stackArray.push(60);
+            stackArray.push(20);
             stackArray.print();
-  
      
 
 
