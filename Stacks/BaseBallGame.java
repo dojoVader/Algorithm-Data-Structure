@@ -47,9 +47,9 @@ public class BaseBallGame {
             case "+":
                 // We get the last 2 points and add them together
                 int lastPoint = stackDataSet.pop();
-                System.out.format("item peeked: %d \n", lastPoint);
+
                 int lastPointPoint = stackDataSet.pop();
-                System.out.format("item peeked: %d \n", lastPoint);
+           
                 sum += (lastPoint + lastPointPoint);
                 stackDataSet.push(lastPointPoint);
                 stackDataSet.push(lastPoint);
@@ -59,7 +59,7 @@ public class BaseBallGame {
 
             case "D":
                 // Double the data which is the last data , Peek looks at the top
-                System.out.format("item peeked: %d \n", stackDataSet.peek());
+         
                 int opsValues = (stackDataSet.peek() * 2);
                 sum += opsValues;
                 stackDataSet.push(opsValues);
